@@ -1,0 +1,14 @@
+---
+title: "Assessment 1"
+author: "Tsetsegee S4661830"
+date: '2022-03-03'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
