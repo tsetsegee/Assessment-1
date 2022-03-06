@@ -369,6 +369,161 @@ pre code {
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
 </div>
+<div id="r-markdown-editing" class="section level1">
+<h1>R Markdown editing</h1>
+<p><strong>R Markdown</strong> <em>is a useful tool that allows you to
+save and execute code, and generate shareable reports for
+stakeholders.</em> <strong>R Markdown</strong> <em>documents are fully
+reproducible and support dozens of static and dynamic output
+formats.</em></p>
+<p>This link is the instrucrtion of how to insert links in the .rmd file
+from <a href="https://rmarkdown.rstudio.com/lesson-8.html">here</a></p>
+<p>##Load the package</p>
+<pre class="r"><code>#install.packages(&quot;tidyverse&quot;)
+library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.8
+## v tidyr   1.2.0     v stringr 1.4.0
+## v readr   2.1.2     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>fastfood &lt;- read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-09-04/fastfood_calories.csv&quot;)</code></pre>
+<pre><code>## New names:
+## * `` -&gt; ...1</code></pre>
+<pre><code>## Rows: 515 Columns: 18
+## -- Column specification --------------------------------------------------------
+## Delimiter: &quot;,&quot;
+## chr  (3): restaurant, item, salad
+## dbl (15): ...1, calories, cal_fat, total_fat, sat_fat, trans_fat, cholestero...
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>head(fastfood)</code></pre>
+<pre><code>## # A tibble: 6 x 18
+##    ...1 restaurant item             calories cal_fat total_fat sat_fat trans_fat
+##   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;               &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1     1 Mcdonalds  Artisan Grilled~      380      60         7       2       0  
+## 2     2 Mcdonalds  Single Bacon Sm~      840     410        45      17       1.5
+## 3     3 Mcdonalds  Double Bacon Sm~     1130     600        67      27       3  
+## 4     4 Mcdonalds  Grilled Bacon S~      750     280        31      10       0.5
+## 5     5 Mcdonalds  Crispy Bacon Sm~      920     410        45      12       0.5
+## 6     6 Mcdonalds  Big Mac               540     250        28      10       1  
+## # ... with 10 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,
+## #   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;,
+## #   vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;chr&gt;</code></pre>
+<pre class="r"><code>head(fastfood, 10)</code></pre>
+<pre><code>## # A tibble: 10 x 18
+##     ...1 restaurant item            calories cal_fat total_fat sat_fat trans_fat
+##    &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1     1 Mcdonalds  Artisan Grille~      380      60         7       2       0  
+##  2     2 Mcdonalds  Single Bacon S~      840     410        45      17       1.5
+##  3     3 Mcdonalds  Double Bacon S~     1130     600        67      27       3  
+##  4     4 Mcdonalds  Grilled Bacon ~      750     280        31      10       0.5
+##  5     5 Mcdonalds  Crispy Bacon S~      920     410        45      12       0.5
+##  6     6 Mcdonalds  Big Mac              540     250        28      10       1  
+##  7     7 Mcdonalds  Cheeseburger         300     100        12       5       0.5
+##  8     8 Mcdonalds  Classic Chicke~      510     210        24       4       0  
+##  9     9 Mcdonalds  Double Cheeseb~      430     190        21      11       1  
+## 10    10 Mcdonalds  Double Quarter~      770     400        45      21       2.5
+## # ... with 10 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,
+## #   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;,
+## #   vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;chr&gt;</code></pre>
+<pre class="r"><code>#install.packages(&quot;knitr&quot;)
+library(knitr)
+kable(fastfood[1:10, 1:5])</code></pre>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="14%" />
+<col width="56%" />
+<col width="12%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">…1</th>
+<th align="left">restaurant</th>
+<th align="left">item</th>
+<th align="right">calories</th>
+<th align="right">cal_fat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Artisan Grilled Chicken Sandwich</td>
+<td align="right">380</td>
+<td align="right">60</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Single Bacon Smokehouse Burger</td>
+<td align="right">840</td>
+<td align="right">410</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Double Bacon Smokehouse Burger</td>
+<td align="right">1130</td>
+<td align="right">600</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Grilled Bacon Smokehouse Chicken Sandwich</td>
+<td align="right">750</td>
+<td align="right">280</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Crispy Bacon Smokehouse Chicken Sandwich</td>
+<td align="right">920</td>
+<td align="right">410</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Big Mac</td>
+<td align="right">540</td>
+<td align="right">250</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Cheeseburger</td>
+<td align="right">300</td>
+<td align="right">100</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Classic Chicken Sandwich</td>
+<td align="right">510</td>
+<td align="right">210</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Double Cheeseburger</td>
+<td align="right">430</td>
+<td align="right">190</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">Mcdonalds</td>
+<td align="left">Double Quarter Pounder® with Cheese</td>
+<td align="right">770</td>
+<td align="right">400</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 
 
