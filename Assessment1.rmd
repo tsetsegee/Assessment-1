@@ -9,13 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
 # R Markdown editing 
 
 **R Markdown** *is a useful tool that allows you to save and execute code, and generate shareable reports for stakeholders.* **R Markdown** *documents are fully reproducible and support dozens of static and dynamic output formats.* 
 
-This link is the  instrucrtion of how to insert links in the .rmd file from [here](https://rmarkdown.rstudio.com/lesson-8.html )
+This link is the  instrucrtion of how to insert links in the .rmd file click [here](https://rmarkdown.rstudio.com/lesson-8.html )
 
 ##Load the package
 
