@@ -1,22 +1,3 @@
----
-title: "Assessment 1"
-author: "Tsetsegee S4661830"
-date: '2022-03-03'
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-# R Markdown editing 
-
-**R Markdown** *is a useful tool that allows you to save and execute code, and generate shareable reports for stakeholders.* **R Markdown** *documents are fully reproducible and support dozens of static and dynamic output formats.* 
-
-This link is the  instrucrtion of how to insert links in the .rmd file click [here](https://rmarkdown.rstudio.com/lesson-8.html )
-
-```{r}
-
 #install.packages("tidyverse")
 library(tidyverse)
 
@@ -27,7 +8,7 @@ head(fastfood, 10)
 library(knitr)
 kable(fastfood[1:10, 1:5])
 
-## Part 2-  8.Display the observations that has more than 1000 calories
+## Part 2 Filter: Display the observations that has more than 1000 calories
 
   filter(fastfood,calories>1000)
 
@@ -38,7 +19,7 @@ fastfood  %>%
   filter(total_fat> 40 & total_carb >80) %>%
   arrange(desc(total_carb))
 
-#9.Arrange observations with more than 40 in total_fat and more than 80 in total_carb in the descending order (PLEASE USE THE VARIABLE OF YOUR CHOICE TO ORGANISE THE DESCENDING ORDER) and save them to a new variable (dataset) called `dont_eat_this`
+#Arrange observations with more than 40 in total_fat and more than 80 in total_carb in the descending order (PLEASE USE THE VARIABLE OF YOUR CHOICE TO ORGANISE THE DESCENDING ORDER) and save them to a new variable (dataset) called `dont_eat_this`
 
 do_not_eat_this <-  fastfood  %>%
   select(restaurant,item,total_fat, total_carb) %>%
@@ -46,7 +27,7 @@ do_not_eat_this <-  fastfood  %>%
   arrange(desc(total_carb))
 
 
-#10.Use case_when()  
+#Use case_when()  
 
 fastfood<- fastfood %>%
   mutate(heavy_food = case_when(calories > 500 ~ "heavy", 
@@ -56,25 +37,25 @@ fastfood %>%
   count(heavy_food)
 
 
-#11.Display the types of variables in the dataset using `skimr` package 
+#Display the types of variables in the dataset using `skimr` package 
 library(skimr)
 skim(fastfood)
 
-#12.Present the count observations from each restaurant in a descending order  
+#Present the count observations from each restaurant in a descending order  
 #Show the number of distnct items on a menu in the dataset
 
 fastfood %>%
   count(restaurant) %>%
   arrange(desc(n))
 
-#13.Using groupings (group_by()), summarise and display the average number of calories for each restaurant.
+#Using groupings (group_by()), summarise and display the average number of calories for each restaurant.
   
  fastfood %>%
   group_by(restaurant) %>%
   summarise(average_numberofcalories = mean(calories)) %>%
   ungroup() 
  
- #14.Add variables to the dataset, which:
+ #Add variables to the dataset, which:
  #calculates the average calories per type of restaurant and call it `average_calories` 
    
  mean_calories <- fastfood %>%
@@ -217,6 +198,3 @@ fastfood %>%
       geom_col() +
       coord_flip()
   
-
-
-
